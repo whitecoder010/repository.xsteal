@@ -300,7 +300,7 @@ def download(url,name):
 	#dialog = xbmcgui.Dialog()
 	#servidor = dialog.select(u'Escolha o servidor para Download', ['Servidor #1', 'Servidor #2', 'Servidor #3'])
 	
-	stream, legenda = getStreamLegenda(url)
+	stream, legenda = getStreamLegenda(urllib.quote(re.findall(r'(https?://.+\.\w{3,4})', player_data)[0], safe="%/:=&?~#+!$,;'@()*[]"))
 	splitStream = stream.split('/')
 
 	nomeStream = stream.split('/')[-1]
